@@ -4,7 +4,11 @@
 }
     
 img {
-    width: 3vw;
+    width: 4vw;
     height: auto;
-    margin: 0 10px
+    margin: 0 10px;
+}
+
+.logo-text {
+    font-size: 4vw;
 }

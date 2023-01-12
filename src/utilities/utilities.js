@@ -5,6 +5,7 @@ export const cleanBookListData = (data) => {
                 if(!cleanBookList.find(cleanBook => cleanBook.title === book.title)) {
                     //possible put a GET request for drink to pair with book here.... is this possible? I could then create a drink key that would house the drink information....
                     const cleanedBook = {
+                        id: Date.now(),
                         amazonProductUrl: book.amazon_product_url,
                         author: book.author,
                         bookImg: book.book_image,

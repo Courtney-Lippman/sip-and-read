@@ -4,3 +4,11 @@ header {
     justify-content: space-between;
 }
 
+.style-button {
+    color: #000000;
+    width: 4vw;
+    height: auto;
+    margin: 10px 10px;
+}
+
+
