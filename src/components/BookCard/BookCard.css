@@ -1,0 +1,19 @@
+
+
+.book-card {
+    border: none;
+    background-color: #ffffff;
+    width: fit-content;
+    height: fit-content;
+    margin: 20px;
+}
+
+.book-card > img {
+    width: 15vw;
+    height: auto;
+    padding: none;
+}
+
+.book-card:hover {
+    cursor: pointer;
+}
