@@ -1,14 +1,17 @@
 import { useEffect, useState } from 'react'
-import { Route, NavLink, Routes, useLocation } from "react-router-dom";
+import { Route, NavLink, Routes, useLocation } from "react-router-dom"
 import './App.css'
 import { fetchData } from '../../apiCalls/GETRequests'
 import { cleanBookListData, cleanDrinkListData } from '../../utilities/utilities'
+import Logo from '../Logo/Logo'
+import { FaHome, BsSuitHeartFill } from 'react-icons/fa'
 
 function App() {
   const [bookList, setBookList] = useState([])
   const [drinkList, setDrinkList] = useState([])
   const [isLoading, setIsLoading] = useState(true)
   const [pairingList, setPairingList] = useState([])
+  const [clicked, setClicked] = useState('home')
 
 
   useEffect(() => {
@@ -27,7 +30,7 @@ function App() {
     fetchData("https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic")
     .then((data) => {
       console.log('Drink data', data)
-      // setDrinkList(cleanDrinkListData(data))
+      //setDrinkList(cleanDrinkListData(data))
     })
     .catch(error => {
       console.log(error.status)
@@ -50,13 +53,30 @@ function App() {
 //   return createdPairingList
 // }
 
+
+
+const clearClicked = () => {
+  setClicked('')
+}
+
   return (
     <div className="App">
-      <Navbar />
-      <Route
+      {/* {error && <Error closeError={closeError} />} */}
+      <header>
+      <Logo />
+      <nav>
+        <NavLink className={clicked === 'home' ? 'button selected' : 'button'} id='home-button' to="/" onClick={() => setClicked('home')}>
+          <FaHome />
+        </NavLink>
+        <NavLink className={clicked === 'favorites' ? 'button selected' : 'button'} id='fav-button' to="/favorites"   onClick={() => setClicked('favorites')}>
+            <BsSuitHeartFill />
+        </NavLink>
+      </nav>
+      </header>
+      {/* <Route
         path="/details/:id"
         element={      <Details bookList={bookList} drinkList={drinkList} />}
-      />
+      /> */}
 
     </div>
   );
