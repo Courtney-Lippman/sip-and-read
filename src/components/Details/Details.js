@@ -3,9 +3,9 @@ import { useEffect, useState } from "react"
 import './Details.css'
 
 const Details = ({ bookList, drinkList, clearClicked, updateError }) => {
+    // const [randomDrink, setRandomDrink] = useState({})
     const { id } = useParams()
     const bookDetails = bookList.find(book => book.title === id)
-    
 
     return (
         <div className="details">
@@ -18,9 +18,30 @@ const Details = ({ bookList, drinkList, clearClicked, updateError }) => {
                 <a style={{display: !bookDetails.nytReviewLink &&  'none'}} href={bookDetails.nytReviewLink}>The New York Times Reviews</a>
                 <a style={{display: !bookDetails.amazonProductUrl &&  'none'}} href={bookDetails.amazonProductUrl}>Buy on amazon!</a>
             </div> 
-            <div className="drink-details-wrapper">
-                
-            </div>
+            {/* <div className="drink-details-wrapper">
+                <h1 className="drink-title">{randomDrink.name}</h1>
+                <img src={randomDrink.img} alt={"Picture of " + randomDrink.name}/>
+                <p>{randomDrink.glass}</p>
+                <p>Instructions: {randomDrink.instructions}</p>
+                <p>Ingredients:</p>
+                <ol>
+                    <li>{`${randomDrink.ingredient1} ${randomDrink.measure1}`}</li>
+                    <li>{`${randomDrink.ingredient2} ${randomDrink.measure2}`}</li>
+                    <li>{`${randomDrink.ingredient3} ${randomDrink.measure3}`}</li>
+                    <li>{`${randomDrink.ingredient4} ${randomDrink.measure4}`}</li>
+                    <li>{`${randomDrink.ingredient5} ${randomDrink.measure5}`}</li>
+                    <li>{`${randomDrink.ingredient6} ${randomDrink.measure6}`}</li>
+                    <li>{`${randomDrink.ingredient7} ${randomDrink.measure7}`}</li>
+                    <li>{`${randomDrink.ingredient8} ${randomDrink.measure8}`}</li>
+                    <li>{`${randomDrink.ingredient9} ${randomDrink.measure9}`}</li>
+                    <li>{`${randomDrink.ingredient10} ${randomDrink.measure10}`}</li>
+                    <li>{`${randomDrink.ingredien11} ${randomDrink.measure11}`}</li>
+                    <li>{`${randomDrink.ingredient12} ${randomDrink.measure12}`}</li>
+                    <li>{`${randomDrink.ingredient13} ${randomDrink.measure13}`}</li>
+                    <li>{`${randomDrink.ingredient14} ${randomDrink.measure14}`}</li>
+                    <li>{`${randomDrink.ingredient15} ${randomDrink.measure15}`}</li>
+                </ol>    
+            </div> */}
         </div>
     )
 }

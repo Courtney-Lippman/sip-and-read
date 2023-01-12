@@ -1,7 +1,8 @@
 import './BookList.css'
 import BookCard from '../BookCard/BookCard'
 
-const BookList = ({ bookList, isLoading }) => {
+const BookList = ({ bookList, isLoading, createPairList }) => {
+    // createPairList() creates an infinite loop here
     const allBooks = bookList.map(book => {
         return <BookCard key={book.title} {...book} />
     })

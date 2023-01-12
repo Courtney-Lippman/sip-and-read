@@ -19,7 +19,6 @@ function App() {
   const [pairingList, setPairingList] = useState([])
   const [clicked, setClicked] = useState('home')
 
-
   useEffect(() => {
     fetchData("https://api.nytimes.com/svc/books/v3/lists/full-overview.json?api-key=SxKAfSsd0aI1RxZ1XPKUIjpd6w7RjZzJ")
     .then(data => {
@@ -34,31 +33,34 @@ function App() {
     })
 
     fetchData("https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic")
+    //https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?a=Alcoholic (id and name only- long list)
+    //www.thecocktaildb.com/api/json/v2/9973533/lookup.php?i=11007 (get full cocktail's details by id )
     .then((data) => {
       console.log('Drink data', data)
-      //setDrinkList(cleanDrinkListData(data))
+      setDrinkList(cleanDrinkListData(data))
     })
     .catch(error => {
       console.log(error.status)
       setError(true)
       setIsLoading(false)
     })
+    // createPairList() BookList and Drink list are not yet set here
   }, [])
 
 
-// const createPairList = () => {
-//   console.log('bookList', bookList)
-//   const createdPairingList = bookList.map(book => {
-//     console.log('book', book)
-//     const randomDrink = drinkList[Math.floor(Math.random()*drinkList.length)]
-//       return {
-//         book: book,
-//         drink: randomDrink
-//       }
-//   } )
-//   console.log('createdPairingList', createdPairingList)
-//   return createdPairingList
-// }
+const createPairList = () => {
+  console.log('bookList', bookList)
+  const createdPairingList = bookList.map(book => {
+    console.log('book', book)
+    const randomDrink = drinkList[Math.floor(Math.random()*drinkList.length)]
+      return {
+        book: book,
+        drink: randomDrink
+      }
+  } )
+  console.log('createdPairingList', createdPairingList)
+  // setPairingList(createdPairingList) this creates a infinite loop
+}
 
 const closeError = () => {
   setError(false)
@@ -93,6 +95,7 @@ const updateError = () => {
             <BookList
               bookList={bookList}
               isLoading={isLoading}
+              createPairList={createPairList}
             />
           }
         />
