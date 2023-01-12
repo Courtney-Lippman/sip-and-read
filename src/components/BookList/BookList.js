@@ -3,7 +3,7 @@ import BookCard from '../BookCard/BookCard'
 
 const BookList = ({ bookList, isLoading }) => {
     const allBooks = bookList.map(book => {
-        return <BookCard key={book.id} {...book} />
+        return <BookCard key={book.title} {...book} />
     })
     return (
         <div className='booklist'>

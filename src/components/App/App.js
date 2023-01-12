@@ -6,6 +6,7 @@ import { cleanBookListData, cleanDrinkListData } from '../../utilities/utilities
 import Error from '../Error/Error'
 import Logo from '../Logo/Logo'
 import BookList from '../BookList/BookList'
+import Details from '../Details/Details'
 import PageNotFound from '../PageNotFound/PageNotFound'
 import { FaHome } from 'react-icons/fa'
 import { BsSuitHeartFill } from 'react-icons/bs'
@@ -101,7 +102,7 @@ const updateError = () => {
             <Favorites 
             bookList={bookList}
             />}
-        />
+        /> */}
         <Route
           path="/details/:id"
           element={
@@ -113,7 +114,7 @@ const updateError = () => {
             />
           }
         />
-        <Route path="*" element={<PageNotFound />} /> */}
+        {/* <Route path="*" element={<PageNotFound />} /> */}
       </Routes>
 
     </div>
