@@ -24,14 +24,13 @@ function App() {
 
   
     const bookPromise = await getData("https://api.nytimes.com/svc/books//lists/full-overview.json?api-key=SxKAfSsd0aI1RxZ1XPKUIjpd6w7RjZzJ")
-
+//need to change url back to valid url
 
    const drinkPromise = await getData("https://www.thecocktaildb.com/api/json//1/filter.php?a=Non_Alcoholic")
+   //need to change url back to valid url
     //https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?a=Alcoholic (id and name only- long list)
     //www.thecocktaildb.com/api/json/v2/9973533/lookup.php?i=11007 (get full cocktail's details by id )
  
-
-
       const cleanedBookList = cleanBookListData(bookPromise)
       const cleanedDrinkList = cleanDrinkListData(drinkPromise)
       const createdPairingList = cleanedBookList.map(book => {
@@ -43,7 +42,7 @@ function App() {
         } )
       setPairingList(createdPairingList)
       } catch(error) {
-            console.error('App useEffect error', error)
+            console.error(error)
             setError(true)
             setIsLoading(false)
       }
