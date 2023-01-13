@@ -1,63 +1,55 @@
 import { useEffect, useState } from 'react'
 import { Route, NavLink, Routes, useLocation } from "react-router-dom"
 import './App.css'
-import { fetchData } from '../../apiCalls/GETRequests'
+import { getData } from '../../apiCalls/GETRequests'
 import { cleanBookListData, cleanDrinkListData } from '../../utilities/utilities'
 import Error from '../Error/Error'
 import Logo from '../Logo/Logo'
 import BookList from '../BookList/BookList'
+import Details from '../Details/Details'
 import PageNotFound from '../PageNotFound/PageNotFound'
 import { FaHome } from 'react-icons/fa'
 import { BsSuitHeartFill } from 'react-icons/bs'
 
 function App() {
   const [error, setError] = useState(false)
-  const [bookList, setBookList] = useState([])
-  const [drinkList, setDrinkList] = useState([])
-  const [isLoading, setIsLoading] = useState(true)
   const [pairingList, setPairingList] = useState([])
+  const [isLoading, setIsLoading] = useState(true)
   const [clicked, setClicked] = useState('home')
-
+ 
 
   useEffect(() => {
-    fetchData("https://api.nytimes.com/svc/books/v3/lists/full-overview.json?api-key=SxKAfSsd0aI1RxZ1XPKUIjpd6w7RjZzJ")
-    .then(data => {
-      console.log('book data', data)
-      setBookList(cleanBookListData(data))
-      setIsLoading(false)
-    })
-    .catch(error => {
-      console.log(error.status)
-      setError(true)
-      setIsLoading(false)
-    })
+    const createPairingList = async () => {
+  try{
 
-    fetchData("https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic")
-    .then((data) => {
-      console.log('Drink data', data)
-      //setDrinkList(cleanDrinkListData(data))
-    })
-    .catch(error => {
-      console.log(error.status)
-      setError(true)
-      setIsLoading(false)
-    })
+  
+    const bookPromise = await getData("https://api.nytimes.com/svc/books//lists/full-overview.json?api-key=SxKAfSsd0aI1RxZ1XPKUIjpd6w7RjZzJ")
+//need to change url back to valid url
+
+   const drinkPromise = await getData("https://www.thecocktaildb.com/api/json//1/filter.php?a=Non_Alcoholic")
+   //need to change url back to valid url
+    //https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?a=Alcoholic (id and name only- long list)
+    //www.thecocktaildb.com/api/json/v2/9973533/lookup.php?i=11007 (get full cocktail's details by id )
+ 
+      const cleanedBookList = cleanBookListData(bookPromise)
+      const cleanedDrinkList = cleanDrinkListData(drinkPromise)
+      const createdPairingList = cleanedBookList.map(book => {
+        const randomDrink = cleanedDrinkList[Math.floor(Math.random()*cleanedDrinkList.length)]
+          return {
+            book: book,
+            drink: randomDrink
+          }
+        } )
+      setPairingList(createdPairingList)
+      } catch(error) {
+            console.error(error)
+            setError(true)
+            setIsLoading(false)
+      }
+    }
+    createPairingList()
   }, [])
 
-
-// const createPairList = () => {
-//   console.log('bookList', bookList)
-//   const createdPairingList = bookList.map(book => {
-//     console.log('book', book)
-//     const randomDrink = drinkList[Math.floor(Math.random()*drinkList.length)]
-//       return {
-//         book: book,
-//         drink: randomDrink
-//       }
-//   } )
-//   console.log('createdPairingList', createdPairingList)
-//   return createdPairingList
-// }
 
 const closeError = () => {
   setError(false)
@@ -90,7 +82,7 @@ const updateError = () => {
           path="/"
           element={
             <BookList
-              bookList={bookList}
+              pairingList={pairingList}
               isLoading={isLoading}
             />
           }
@@ -101,7 +93,7 @@ const updateError = () => {
             <Favorites 
             bookList={bookList}
             />}
-        />
+        /> */}
         <Route
           path="/details/:id"
           element={
@@ -113,7 +105,7 @@ const updateError = () => {
             />
           }
         />
-        <Route path="*" element={<PageNotFound />} /> */}
+        {/* <Route path="*" element={<PageNotFound />} /> */}
       </Routes>
 
     </div>
