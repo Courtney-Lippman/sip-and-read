@@ -23,12 +23,12 @@ function App() {
 
       try{
 
-        const bookPromise = await getData("https://api.nytimes.com/svc/books/v3/lists/full-overview.json?api-key=SxKAfSsd0aI1RxZ1XPKUIjpd6w7RjZzJ")
-        const drinkPromise = await getData("https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic")
+        const bookData = await getData("https://api.nytimes.com/svc/books/v3/lists/full-overview.json?api-key=SxKAfSsd0aI1RxZ1XPKUIjpd6w7RjZzJ")
+        const drinkData = await getData("https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic")
         //https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?a=Alcoholic (id and name only- long list)
         //www.thecocktaildb.com/api/json/v2/9973533/lookup.php?i=11007 (get full cocktail's details by id )
-        const cleanedBookList = cleanBookListData(bookPromise)
-        const cleanedDrinkList = cleanDrinkListData(drinkPromise)
+        const cleanedBookList = cleanBookListData(bookData)
+        const cleanedDrinkList = cleanDrinkListData(drinkData)
         const createdPairingList = cleanedBookList.map(book => {
         const randomDrink = cleanedDrinkList[Math.floor(Math.random()*cleanedDrinkList.length)]
             return {

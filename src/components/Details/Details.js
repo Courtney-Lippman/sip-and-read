@@ -1,12 +1,24 @@
 import { useParams } from "react-router-dom"
 import { useEffect, useState } from "react"
+import { getDrinkDetails } from "../../apiCalls/GETRequests"
 import './Details.css'
 
 const Details = ({ pairingList, clearClicked, updateError }) => {
-    const [specificPairing, setSpecificPairing] = useState({})
     const { id } = useParams()
     const foundPairing = pairingList.find(pairing => pairing.book.title === id)
-    setSpecificPairing(foundPairing)
+
+    useEffect(() => {
+        const createDrinkDetails = async () => {
+            try {
+                const drinkDetailsData = await getDrinkDetails()
+            } catch(error) {
+                console.error(error)
+                setError(true)
+                setIsLoading(false)
+            }
+        }
+
+    }, [])
 
     return (
         <div className="details">
