@@ -1,9 +1,9 @@
-export const fetchData = (url) => {
-    return fetch(url)
-    .then(response => {
-        if(!response.ok) {
-            throw new Error (`${response.status}`)
-        }
-        return response.json()
-    })
+export const getData = async (url) => {
+    try {
+    const response = await fetch (url)
+    return response.json()
+} catch (error) {
+    console.error(error)
+    throw new Error(`error in getData`)
+}
 }

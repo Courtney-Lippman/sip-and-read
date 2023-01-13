@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 import './Details.css'
 
 const Details = ({ bookList, drinkList, clearClicked, updateError }) => {
-    // const [randomDrink, setRandomDrink] = useState({})
+    
     const { id } = useParams()
     const bookDetails = bookList.find(book => book.title === id)
 
