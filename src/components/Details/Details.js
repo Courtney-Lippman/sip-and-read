@@ -26,40 +26,56 @@ const Details = ({ pairingList, clearClicked, updateError }) => {
         createDrinkDetails(drinkId)
     }, [])
 
+    const renderCheck = (detail) => {
+        if(!detail) {
+            return {display: 'none' }
+        }
+
+    }
+
     return (
-        <div className="details">
-            <div className="book-details-wrapper">
-                <h1>{bookDetails.title}</h1>
-                <img style={{display: !bookDetails.bookImg &&  'none'}} src={bookDetails.bookImg} alt={"Book Cover of " + bookDetails.title } />
-                <h2 style={{display: !bookDetails.author &&  'none'}}>{bookDetails.author}</h2>
-                <p style={{display: !bookDetails.description &&  'none'}}>${bookDetails.description}</p>
-                <p style={{display: !bookDetails.publisher &&  'none'}}>{bookDetails.publisher}</p>
-                <a style={{display: !bookDetails.nytReviewLink &&  'none'}} href={bookDetails.nytReviewLink}>The New York Times Reviews</a>
-                <a style={{display: !bookDetails.amazonProductUrl &&  'none'}} href={bookDetails.amazonProductUrl}>Buy on amazon!</a>
-            </div> 
-            <div className="drink-details-wrapper">
-                <h1 className="drink-title">{ drinkDetails.name}</h1>
-                <img src={ drinkDetails.img} alt={"Picture of " +  drinkDetails.name}/>
-                <p>{ drinkDetails.glass}</p>
-                <p>Instructions: { drinkDetails.instructions}</p>
-                <p>Ingredients:</p>
-                <ol>
-                    <li>{`${ drinkDetails.ingredient1} ${ drinkDetails.measure1}`}</li>
-                    <li>{`${ drinkDetails.ingredient2} ${ drinkDetails.measure2}`}</li>
-                    <li>{`${ drinkDetails.ingredient3} ${ drinkDetails.measure3}`}</li>
-                    <li>{`${ drinkDetails.ingredient4} ${ drinkDetails.measure4}`}</li>
-                    <li>{`${ drinkDetails.ingredient5} ${ drinkDetails.measure5}`}</li>
-                    <li>{`${ drinkDetails.ingredient6} ${ drinkDetails.measure6}`}</li>
-                    <li>{`${ drinkDetails.ingredient7} ${ drinkDetails.measure7}`}</li>
-                    <li>{`${ drinkDetails.ingredient8} ${ drinkDetails.measure8}`}</li>
-                    <li>{`${ drinkDetails.ingredient9} ${ drinkDetails.measure9}`}</li>
-                    <li>{`${ drinkDetails.ingredient10} ${ drinkDetails.measure10}`}</li>
-                    <li>{`${ drinkDetails.ingredien11} ${ drinkDetails.measure11}`}</li>
-                    <li>{`${ drinkDetails.ingredient12} ${ drinkDetails.measure12}`}</li>
-                    <li>{`${ drinkDetails.ingredient13} ${ drinkDetails.measure13}`}</li>
-                    <li>{`${ drinkDetails.ingredient14} ${ drinkDetails.measure14}`}</li>
-                    <li>{`${ drinkDetails.ingredient15} ${ drinkDetails.measure15}`}</li>
-                </ol>    
+        <div className="details-page">
+            <h1>The Pairing</h1>
+            <div className="details">
+                <div className="book-details-wrapper">
+                    <img classname="book-drink-img" style={renderCheck(bookDetails.bookImg)} src={bookDetails.bookImg} alt={"Book Cover of " + bookDetails.title} />
+                    <div className="book-text">
+                        <h1 className="drink-book-title">{bookDetails.title}</h1>
+                        <h2 style={renderCheck(bookDetails.author)}>{bookDetails.author}</h2>
+                        <p style={renderCheck(bookDetails.description)}>${bookDetails.description}</p>
+                        <p style={renderCheck(bookDetails.publisher)}>{bookDetails.publisher}</p>
+                        <a style={renderCheck(bookDetails.nytReviewLink)} href={bookDetails.nytReviewLink}>The New York Times Reviews</a>
+                        <a style={renderCheck(bookDetails.amazonProductUrl)} href={bookDetails.amazonProductUrl}>Buy on amazon!</a>
+                    </div>
+                </div> 
+                <div className="drink-details-wrapper">
+                    <div className="drink-text">
+                        <h1 className="drink-book-title">{ drinkDetails.name}</h1>
+                        <div className="ingredient-glass-instruction-wrapper">
+                            <p style={renderCheck(drinkDetails.ingredient1)}>Ingredients:</p>
+                            <ol>
+                                <li style={renderCheck(drinkDetails.ingredient1)}>{`${ drinkDetails.ingredient1} ~ ${ drinkDetails.measure1}`}</li>
+                                <li style={renderCheck(drinkDetails.ingredient2)}>{`${ drinkDetails.ingredient2} ~ ${ drinkDetails.measure2}`}</li>
+                                <li style={renderCheck(drinkDetails.ingredient3)}>{`${ drinkDetails.ingredient3} ~ ${ drinkDetails.measure3}`}</li>
+                                <li style={renderCheck(drinkDetails.ingredient4)}>{`${ drinkDetails.ingredient4} ~ ${ drinkDetails.measure4}`}</li>
+                                <li style={renderCheck(drinkDetails.ingredient5)}>{`${ drinkDetails.ingredient5} ~ ${ drinkDetails.measure5}`}</li>
+                                <li style={renderCheck(drinkDetails.ingredient6)}>{`${ drinkDetails.ingredient6} ~ ${ drinkDetails.measure6}`}</li>
+                                <li style={renderCheck(drinkDetails.ingredient7)}>{`${ drinkDetails.ingredient7} ~ ${ drinkDetails.measure7}`}</li>
+                                <li style={renderCheck(drinkDetails.ingredient8)}>{`${ drinkDetails.ingredient8} ~ ${ drinkDetails.measure8}`}</li>
+                                <li style={renderCheck(drinkDetails.ingredient9)}>{`${ drinkDetails.ingredient9} ~ ${ drinkDetails.measure9}`}</li>
+                                <li style={renderCheck(drinkDetails.ingredient10)}>{`${ drinkDetails.ingredient10} ~ ${ drinkDetails.measure10}`}</li>
+                                <li style={renderCheck(drinkDetails.ingredient11)}>{`${ drinkDetails.ingredien11} ~ ${ drinkDetails.measure11}`}</li>
+                                <li style={renderCheck(drinkDetails.ingredient12)}>{`${ drinkDetails.ingredient12} ~ ${ drinkDetails.measure12}`}</li>
+                                <li style={renderCheck(drinkDetails.ingredient13)}>{`${ drinkDetails.ingredient13} ~ ${ drinkDetails.measure13}`}</li>
+                                <li style={renderCheck(drinkDetails.ingredient14)}>{`${ drinkDetails.ingredient14}~ ${ drinkDetails.measure14}`}</li>
+                                <li style={renderCheck(drinkDetails.ingredient15)}>{`${ drinkDetails.ingredient15} ~ ${ drinkDetails.measure15}`}</li>
+                            </ol>
+                            <p style={renderCheck(drinkDetails.glass)}>Glass: {drinkDetails.glass}</p>
+                            <p style={renderCheck(drinkDetails.instructions)}>Instructions: { drinkDetails.instructions}</p>
+                        </div>
+                    </div> 
+                    <img classname="book-drink-img" style={renderCheck(drinkDetails.img)} src={ drinkDetails.img} alt={"Picture of " +  drinkDetails.name}/>      
+                </div>
             </div>
         </div>
     )
