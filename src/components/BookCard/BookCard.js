@@ -1,19 +1,15 @@
 import './BookCard.css'
 import { useNavigate } from "react-router-dom"
 
-const BookCard = ( 
-    {
-    bookImg,
-    title 
-    }
-) => {
+const BookCard = ({ drink, book }) => {
     const navigate = useNavigate()
     const handleClick = () => {
-      navigate(`/details/${title}`)
+      navigate(`/details/${book.title}`)
     }
     return (
         <button onClick={handleClick} className="book-card">
-            <img style={{display: !bookImg &&  'none'}} src={bookImg} alt={"Book Cover of " + title } />
+            <img style={{display: !book.bookImg &&  'none'}} src={book.bookImg} alt={"Book Cover of " + book.title } />
+            <p className='drink-name'>{drink.name}</p>
         </button>
     )
 }
