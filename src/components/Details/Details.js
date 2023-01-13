@@ -2,14 +2,15 @@ import { useParams } from "react-router-dom"
 import { useEffect, useState } from "react"
 import './Details.css'
 
-const Details = ({ bookList, drinkList, clearClicked, updateError }) => {
-    
+const Details = ({ pairingList, clearClicked, updateError }) => {
+    const [specificPairing, setSpecificPairing] = useState({})
     const { id } = useParams()
-    const bookDetails = bookList.find(book => book.title === id)
+    const foundPairing = pairingList.find(pairing => pairing.book.title === id)
+    setSpecificPairing(foundPairing)
 
     return (
         <div className="details">
-            <div className="book-details-wrapper">
+            {/* <div className="book-details-wrapper">
                 <h1>{bookDetails.title}</h1>
                 <img style={{display: !bookDetails.bookImg &&  'none'}} src={bookDetails.bookImg} alt={"Book Cover of " + bookDetails.title } />
                 <h2 style={{display: !bookDetails.author &&  'none'}}>{bookDetails.author}</h2>
@@ -17,7 +18,7 @@ const Details = ({ bookList, drinkList, clearClicked, updateError }) => {
                 <p style={{display: !bookDetails.publisher &&  'none'}}>{bookDetails.publisher}</p>
                 <a style={{display: !bookDetails.nytReviewLink &&  'none'}} href={bookDetails.nytReviewLink}>The New York Times Reviews</a>
                 <a style={{display: !bookDetails.amazonProductUrl &&  'none'}} href={bookDetails.amazonProductUrl}>Buy on amazon!</a>
-            </div> 
+            </div>  */}
             {/* <div className="drink-details-wrapper">
                 <h1 className="drink-title">{randomDrink.name}</h1>
                 <img src={randomDrink.img} alt={"Picture of " + randomDrink.name}/>

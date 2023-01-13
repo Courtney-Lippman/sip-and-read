@@ -20,31 +20,29 @@ function App() {
 
   useEffect(() => {
     const createPairingList = async () => {
-  try{
 
-  
-    const bookPromise = await getData("https://api.nytimes.com/svc/books//lists/full-overview.json?api-key=SxKAfSsd0aI1RxZ1XPKUIjpd6w7RjZzJ")
-//need to change url back to valid url
+      try{
 
-   const drinkPromise = await getData("https://www.thecocktaildb.com/api/json//1/filter.php?a=Non_Alcoholic")
-   //need to change url back to valid url
-    //https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?a=Alcoholic (id and name only- long list)
-    //www.thecocktaildb.com/api/json/v2/9973533/lookup.php?i=11007 (get full cocktail's details by id )
- 
-      const cleanedBookList = cleanBookListData(bookPromise)
-      const cleanedDrinkList = cleanDrinkListData(drinkPromise)
-      const createdPairingList = cleanedBookList.map(book => {
+        const bookPromise = await getData("https://api.nytimes.com/svc/books/v3/lists/full-overview.json?api-key=SxKAfSsd0aI1RxZ1XPKUIjpd6w7RjZzJ")
+        const drinkPromise = await getData("https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic")
+        //https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?a=Alcoholic (id and name only- long list)
+        //www.thecocktaildb.com/api/json/v2/9973533/lookup.php?i=11007 (get full cocktail's details by id )
+        const cleanedBookList = cleanBookListData(bookPromise)
+        const cleanedDrinkList = cleanDrinkListData(drinkPromise)
+        const createdPairingList = cleanedBookList.map(book => {
         const randomDrink = cleanedDrinkList[Math.floor(Math.random()*cleanedDrinkList.length)]
-          return {
-            book: book,
-            drink: randomDrink
-          }
-        } )
-      setPairingList(createdPairingList)
+            return {
+              book: book,
+              drink: randomDrink
+            }
+        })
+
+        setPairingList(createdPairingList)
+
       } catch(error) {
-            console.error(error)
-            setError(true)
-            setIsLoading(false)
+              console.error(error)
+              setError(true)
+              setIsLoading(false)
       }
     }
     createPairingList()
@@ -98,8 +96,7 @@ const updateError = () => {
           path="/details/:id"
           element={
             <Details
-              bookList={bookList}
-              drinkList={drinkList}
+              pairingList={pairingList}
               clearClicked={clearClicked}
               updateError={updateError}
             />
