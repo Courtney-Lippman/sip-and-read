@@ -94,7 +94,7 @@ const updateError = () => {
             bookList={bookList}
             />}
         /> */}
-        {/* <Route
+        <Route
           path="/details/:id"
           element={
             <Details
@@ -104,7 +104,7 @@ const updateError = () => {
               updateError={updateError}
             />
           }
-        /> */}
+        />
         {/* <Route path="*" element={<PageNotFound />} /> */}
       </Routes>
 
