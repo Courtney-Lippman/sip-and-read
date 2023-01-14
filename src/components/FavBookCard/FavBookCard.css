@@ -1,0 +1,21 @@
+.fav-book-card {
+    border: none;
+    background-color: #ffffff;
+    width: fit-content;
+    height: fit-content;
+    margin: 20px;
+}
+
+.fav-book-card > img {
+    width: 15vw;
+    height: auto;
+    padding: none;
+}
+
+.fav-book-card:hover {
+    cursor: pointer;
+}
+
+.fav-drink-name {
+    font-size: 1.5vw;
+}
