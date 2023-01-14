@@ -21,7 +21,7 @@ const Favorites = ({ pairingList, toggleSavePairing }) => {
     return (
         <div className='favorites'>
             <h1 className='favorites-page-title'>The Favorites List</h1>
-            {favPairingsList.length === 0 && <h1 className="no-fav-message">You currently have no favorite games. Go and favorite some cool games!</h1>}
+            {favPairingsList.length === 0 && <h1 className="no-fav-message">You currently have no favorite pairings. Save some pairings that you like!</h1>}
             <div className='favorites-card-wrapper'>{favPairingsList}</div>
         </div>
     )
