@@ -4,6 +4,10 @@
     align-items: center;
 }
 
+.details-page-title {
+    font-size: 3vw;
+}
+
 .details {
     display: flex;
     justify-content: space-around;
@@ -14,33 +18,58 @@
     font-size: 2vw;
 }
 
-.book-details-wrapper {
+.drink-title {
+    margin-bottom: 0px;
+}
+
+.book-title-wrapper {
     display: flex;
+    flex-direction: column;
     align-items: center;
     border: solid 4px black;
     width: 45vw;
+
+}
+
+.book-details-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.drink-title-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: solid 4px black;
+    width: 45vw;
+
 }
 
 .drink-details-wrapper {
     display: flex;
     align-items: center;
-    border: solid 4px black;
-    width: 45vw;
+
 }
 
 .book-drink-img {
-    width: 13vw;
+    width: 16vw;
     height: auto;
+    margin: 1vw;
 }
 
 .book-text {
     display: flex;
     flex-direction: column;
+    font-size: 1.5vw;
+    padding: 0 1vw;
 }
 
 .drink-text {
     display: flex;
     flex-direction: column;
+    font-size: 1.5vw;
+    padding: 0 1vw;
+
 }
 
 .ingredient-glass-instruction-wrapper {
