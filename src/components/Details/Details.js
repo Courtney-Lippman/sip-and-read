@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom"
 import { useEffect, useState } from "react"
 import { getDrinkDetails } from "../../apiCalls/GETRequests"
 import { cleanRandomDrinkData } from "../../utilities/utilities"
+import { BsSuitHeartFill } from 'react-icons/bs'
 import './Details.css'
 
 const Details = ({ pairingList, clearClicked, updateError }) => {
@@ -36,7 +37,7 @@ const Details = ({ pairingList, clearClicked, updateError }) => {
     return (
         <div className="details-page">
             <div className="save-button-wrapper">
-            <button className="save-button">Save Pairing to favorites</button>
+            <button className="save-button">Save Pairing to favorites <BsSuitHeartFill /></button>
             </div>
             <h1 className="details-page-title">The Pairing</h1>
             <div className="details">
