@@ -33,7 +33,8 @@ function App() {
         const randomDrink = cleanedDrinkList[Math.floor(Math.random()*cleanedDrinkList.length)]
             return {
               book: book,
-              drink: randomDrink
+              drink: randomDrink,
+              isSaved: false
             }
         })
 
@@ -60,6 +61,19 @@ const clearClicked = () => {
 const updateError = () => {
   setError(true);
 };
+
+const savePairing = (id) => {
+  const newPairingsList = pairingList.map(pairing => {
+    if(pairing.book.title === id) {
+      return {
+        ...pairing,
+        isSaved: !pairing.isSaved,
+      }
+    }
+    return pairing
+  })
+  setPairingList(newPairingsList)
+}
 
   return (
     <div className="App">
@@ -99,6 +113,7 @@ const updateError = () => {
               pairingList={pairingList}
               clearClicked={clearClicked}
               updateError={updateError}
+              savePairing={savePairing}
             />
           }
         />
