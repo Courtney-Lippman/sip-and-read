@@ -5,12 +5,11 @@ import { getData } from '../../apiCalls/GETRequests'
 import { cleanBookListData, cleanDrinkListData } from '../../utilities/utilities'
 import Error from '../Error/Error'
 import Logo from '../Logo/Logo'
+import Navbar from '../Navbar/Navbar'
 import BookList from '../BookList/BookList'
 import Favorites from '../Favorites/Favorites'
 import Details from '../Details/Details'
 import PageNotFound from '../PageNotFound/PageNotFound'
-import { FaHome } from 'react-icons/fa'
-import { BsSuitHeartFill } from 'react-icons/bs'
 
 function App() {
   const [error, setError] = useState(false)
@@ -81,14 +80,7 @@ const toggleSavePairing = (id) => {
       {error && <Error closeError={closeError} />}
       <header>
       <Logo />
-      <nav>
-        <NavLink className={clicked === 'home' ? 'button selected' : 'button'} id='home-button' to="/" onClick={() => setClicked('home')}>
-          <FaHome className='style-button' />
-        </NavLink>
-        <NavLink className={clicked === 'favorites' ? 'button selected' : 'button'} id='fav-button' to="/favorites"   onClick={() => setClicked('favorites')}>
-            <BsSuitHeartFill className='style-button' />
-        </NavLink>
-      </nav>
+      <Navbar setClicked={setClicked} clicked={clicked} />
       </header>
       <Routes>
         <Route
