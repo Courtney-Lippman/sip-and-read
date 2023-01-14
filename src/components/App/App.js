@@ -6,6 +6,7 @@ import { cleanBookListData, cleanDrinkListData } from '../../utilities/utilities
 import Error from '../Error/Error'
 import Logo from '../Logo/Logo'
 import BookList from '../BookList/BookList'
+import Favorites from '../Favorites/Favorites'
 import Details from '../Details/Details'
 import PageNotFound from '../PageNotFound/PageNotFound'
 import { FaHome } from 'react-icons/fa'
@@ -99,13 +100,13 @@ const savePairing = (id) => {
             />
           }
         />
-        {/* <Route
+        <Route
           path="/favorites"
           element={
             <Favorites 
-            bookList={bookList}
+            pairingList={pairingList}
             />}
-        /> */}
+        />
         <Route
           path="/details/:id"
           element={
