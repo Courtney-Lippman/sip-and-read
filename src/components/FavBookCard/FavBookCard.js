@@ -1,7 +1,8 @@
 import './FavBookCard.css'
+import { BsTrash } from 'react-icons/bs'
 import { useNavigate } from "react-router-dom"
 
-const FavBookCard = ({ title, image, drink, isSaved }) => {
+const FavBookCard = ({ title, image, drink, toggleSavePairing }) => {
     const navigate = useNavigate()
     const handleClick = () => {
       navigate(`/details/${title}`)
@@ -12,6 +13,7 @@ const FavBookCard = ({ title, image, drink, isSaved }) => {
                 <img style={{display: !image &&  'none'}} src={image} alt={"Book Cover of " + title } />
                 <p className='fav-drink-name'>{drink}</p>
             </button>
+            <BsTrash className="trash" onClick={() => {toggleSavePairing(title)}} />
         </div>
     )
 }

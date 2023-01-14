@@ -6,7 +6,7 @@ import { BsSuitHeartFill } from 'react-icons/bs'
 import './Details.css'
 import { render } from "@testing-library/react"
 
-const Details = ({ pairingList, clearClicked, updateError, savePairing }) => {
+const Details = ({ pairingList, clearClicked, updateError, toggleSavePairing }) => {
     const [drinkDetails, setDrinkDetails] = useState({})
     const { id } = useParams()
     const foundPairing = pairingList.find(pairing => pairing.book.title === id)
@@ -38,7 +38,7 @@ const Details = ({ pairingList, clearClicked, updateError, savePairing }) => {
     return (
         <div className="details-page">
             <div className="save-button-wrapper">
-            <button style={renderCheck(!foundPairing.isSaved)} className="save-button" onClick={() => {savePairing(bookDetails.title)}}>Save Pairing to favorites <BsSuitHeartFill /></button>
+            <button style={renderCheck(!foundPairing.isSaved)} className="save-button" onClick={() => {toggleSavePairing(bookDetails.title)}}>Save Pairing to favorites <BsSuitHeartFill /></button>
             <p className="saved-message" style={renderCheck(foundPairing.isSaved)}>This pairing has been saved.</p>
             </div>
             <h1 className="details-page-title">The Pairing</h1>
