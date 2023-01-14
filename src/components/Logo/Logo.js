@@ -5,9 +5,9 @@ import './Logo.css'
 const Logo = () => {
     return (
         <div className='logo'>
-        <img src={cocktailGlass} alt="Black and white photo of a coupe cocktail glass with a cherry." />
+        <img className="logo-img" src={cocktailGlass} alt="Black and white photo of a coupe cocktail glass with a cherry." />
         <h1 className="logo-text">Sip and Read</h1>
-        <img src={bookStack} alt="A off center stack of books."/>
+        <img className="logo-img" src={bookStack} alt="A off center stack of books."/>
         </div>
     )
 }

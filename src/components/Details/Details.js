@@ -35,22 +35,25 @@ const Details = ({ pairingList, clearClicked, updateError }) => {
 
     return (
         <div className="details-page">
-            <h1>The Pairing</h1>
+            <h1 className="details-page-title">The Pairing</h1>
             <div className="details">
+                <div className="book-title-wrapper">
+                <h1 className="drink-book-title book-title">{bookDetails.title}</h1>
+                <h2 style={renderCheck(bookDetails.author)}>by {bookDetails.author}</h2>
                 <div className="book-details-wrapper">
-                    <img classname="book-drink-img" style={renderCheck(bookDetails.bookImg)} src={bookDetails.bookImg} alt={"Book Cover of " + bookDetails.title} />
+                    <img className="book-drink-img" style={renderCheck(bookDetails.bookImg)} src={bookDetails.bookImg} alt={"Book Cover of " + bookDetails.title} />
                     <div className="book-text">
-                        <h1 className="drink-book-title">{bookDetails.title}</h1>
-                        <h2 style={renderCheck(bookDetails.author)}>{bookDetails.author}</h2>
                         <p style={renderCheck(bookDetails.description)}>${bookDetails.description}</p>
-                        <p style={renderCheck(bookDetails.publisher)}>{bookDetails.publisher}</p>
+                        <p style={renderCheck(bookDetails.publisher)}>Publisher: {bookDetails.publisher}</p>
                         <a style={renderCheck(bookDetails.nytReviewLink)} href={bookDetails.nytReviewLink}>The New York Times Reviews</a>
                         <a style={renderCheck(bookDetails.amazonProductUrl)} href={bookDetails.amazonProductUrl}>Buy on amazon!</a>
                     </div>
-                </div> 
+                </div>
+                </div>
+                <div className="drink-title-wrapper">
+                    <h1 className="drink-book-title">{ drinkDetails.name}</h1>
                 <div className="drink-details-wrapper">
                     <div className="drink-text">
-                        <h1 className="drink-book-title">{ drinkDetails.name}</h1>
                         <div className="ingredient-glass-instruction-wrapper">
                             <p style={renderCheck(drinkDetails.ingredient1)}>Ingredients:</p>
                             <ol>
@@ -74,7 +77,8 @@ const Details = ({ pairingList, clearClicked, updateError }) => {
                             <p style={renderCheck(drinkDetails.instructions)}>Instructions: { drinkDetails.instructions}</p>
                         </div>
                     </div> 
-                    <img classname="book-drink-img" style={renderCheck(drinkDetails.img)} src={ drinkDetails.img} alt={"Picture of " +  drinkDetails.name}/>      
+                    <img className="book-drink-img" style={renderCheck(drinkDetails.img)} src={ drinkDetails.img} alt={"Picture of " +  drinkDetails.name}/>      
+                </div>
                 </div>
             </div>
         </div>
