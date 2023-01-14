@@ -28,6 +28,12 @@
     transform: translateY(-0.25em);
 }
 
+.saved-message {
+    font-size: 1vw;
+    padding: 0.5vw;
+    margin-right: 1vw;
+}
+
 .details-page-title {
     font-size: 3vw;
     margin-top: 0px;
