@@ -16,9 +16,10 @@
 
 .drink-book-title {
     font-size: 2vw;
+    text-align: center;
 }
 
-.drink-title {
+.book-title {
     margin-bottom: 0px;
 }
 

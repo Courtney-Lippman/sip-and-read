@@ -38,13 +38,13 @@ const Details = ({ pairingList, clearClicked, updateError }) => {
             <h1 className="details-page-title">The Pairing</h1>
             <div className="details">
                 <div className="book-title-wrapper">
-                <h1 className="drink-book-title drink-title">{bookDetails.title}</h1>
+                <h1 className="drink-book-title book-title">{bookDetails.title}</h1>
                 <h2 style={renderCheck(bookDetails.author)}>by {bookDetails.author}</h2>
                 <div className="book-details-wrapper">
                     <img className="book-drink-img" style={renderCheck(bookDetails.bookImg)} src={bookDetails.bookImg} alt={"Book Cover of " + bookDetails.title} />
                     <div className="book-text">
                         <p style={renderCheck(bookDetails.description)}>${bookDetails.description}</p>
-                        <p style={renderCheck(bookDetails.publisher)}>{bookDetails.publisher}</p>
+                        <p style={renderCheck(bookDetails.publisher)}>Publisher: {bookDetails.publisher}</p>
                         <a style={renderCheck(bookDetails.nytReviewLink)} href={bookDetails.nytReviewLink}>The New York Times Reviews</a>
                         <a style={renderCheck(bookDetails.amazonProductUrl)} href={bookDetails.amazonProductUrl}>Buy on amazon!</a>
                     </div>
