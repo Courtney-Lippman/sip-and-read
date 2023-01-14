@@ -4,7 +4,6 @@ import { getDrinkDetails } from "../../apiCalls/GETRequests"
 import { cleanRandomDrinkData } from "../../utilities/utilities"
 import { BsSuitHeartFill } from 'react-icons/bs'
 import './Details.css'
-import { render } from "@testing-library/react"
 
 const Details = ({ pairingList, clearClicked, updateError, toggleSavePairing }) => {
     const [drinkDetails, setDrinkDetails] = useState({})
@@ -14,6 +13,7 @@ const Details = ({ pairingList, clearClicked, updateError, toggleSavePairing }) 
     const bookDetails = foundPairing.book
 
     useEffect(() => {
+        clearClicked()
         const createDrinkDetails = async (id) => {
             try {
                 const drinkDetailsData = await getDrinkDetails(id)
