@@ -6,6 +6,7 @@ import { cleanBookListData, cleanDrinkListData } from '../../utilities/utilities
 import Error from '../Error/Error'
 import Logo from '../Logo/Logo'
 import BookList from '../BookList/BookList'
+import Favorites from '../Favorites/Favorites'
 import Details from '../Details/Details'
 import PageNotFound from '../PageNotFound/PageNotFound'
 import { FaHome } from 'react-icons/fa'
@@ -33,7 +34,8 @@ function App() {
         const randomDrink = cleanedDrinkList[Math.floor(Math.random()*cleanedDrinkList.length)]
             return {
               book: book,
-              drink: randomDrink
+              drink: randomDrink,
+              isSaved: false
             }
         })
 
@@ -61,6 +63,19 @@ const updateError = () => {
   setError(true);
 };
 
+const savePairing = (id) => {
+  const newPairingsList = pairingList.map(pairing => {
+    if(pairing.book.title === id) {
+      return {
+        ...pairing,
+        isSaved: !pairing.isSaved,
+      }
+    }
+    return pairing
+  })
+  setPairingList(newPairingsList)
+}
+
   return (
     <div className="App">
       {error && <Error closeError={closeError} />}
@@ -85,13 +100,13 @@ const updateError = () => {
             />
           }
         />
-        {/* <Route
+        <Route
           path="/favorites"
           element={
             <Favorites 
-            bookList={bookList}
+            pairingList={pairingList}
             />}
-        /> */}
+        />
         <Route
           path="/details/:id"
           element={
@@ -99,6 +114,7 @@ const updateError = () => {
               pairingList={pairingList}
               clearClicked={clearClicked}
               updateError={updateError}
+              savePairing={savePairing}
             />
           }
         />

@@ -2,10 +2,41 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 40px;
+}
+
+.save-button-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.save-button {
+    font-size: 1vw;
+    background-color: #ffffff;
+    border: solid #000000;
+    border-radius: 6px;
+    box-shadow: 5px 5px 10px 2px rgba(0,0,0,.8);
+    padding: 0.5vw;
+    margin-right: 1vw;
+    transition: .3s;
+}
+
+.save-button:hover, .save-button:focus {
+    cursor: pointer;
+    box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
+    transform: translateY(-0.25em);
+}
+
+.saved-message {
+    font-size: 1vw;
+    padding: 0.5vw;
+    margin-right: 1vw;
 }
 
 .details-page-title {
     font-size: 3vw;
+    margin-top: 0px;
 }
 
 .details {
@@ -21,6 +52,10 @@
 
 .book-title {
     margin-bottom: 0px;
+}
+
+.author {
+    font-size: 1vw;
 }
 
 .book-title-wrapper {
@@ -73,6 +108,6 @@
 
 }
 
-.ingredient-glass-instruction-wrapper {
-
+.ingredient-list {
+    padding-inline-start: 3vw;
 }

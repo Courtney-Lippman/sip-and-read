@@ -2,9 +2,11 @@ import { useParams } from "react-router-dom"
 import { useEffect, useState } from "react"
 import { getDrinkDetails } from "../../apiCalls/GETRequests"
 import { cleanRandomDrinkData } from "../../utilities/utilities"
+import { BsSuitHeartFill } from 'react-icons/bs'
 import './Details.css'
+import { render } from "@testing-library/react"
 
-const Details = ({ pairingList, clearClicked, updateError }) => {
+const Details = ({ pairingList, clearClicked, updateError, savePairing }) => {
     const [drinkDetails, setDrinkDetails] = useState({})
     const { id } = useParams()
     const foundPairing = pairingList.find(pairing => pairing.book.title === id)
@@ -35,11 +37,15 @@ const Details = ({ pairingList, clearClicked, updateError }) => {
 
     return (
         <div className="details-page">
+            <div className="save-button-wrapper">
+            <button style={renderCheck(!foundPairing.isSaved)} className="save-button" onClick={() => {savePairing(bookDetails.title)}}>Save Pairing to favorites <BsSuitHeartFill /></button>
+            <p className="saved-message" style={renderCheck(foundPairing.isSaved)}>This pairing has been saved.</p>
+            </div>
             <h1 className="details-page-title">The Pairing</h1>
             <div className="details">
                 <div className="book-title-wrapper">
                 <h1 className="drink-book-title book-title">{bookDetails.title}</h1>
-                <h2 style={renderCheck(bookDetails.author)}>by {bookDetails.author}</h2>
+                <h2 className="author" style={renderCheck(bookDetails.author)}>by {bookDetails.author}</h2>
                 <div className="book-details-wrapper">
                     <img className="book-drink-img" style={renderCheck(bookDetails.bookImg)} src={bookDetails.bookImg} alt={"Book Cover of " + bookDetails.title} />
                     <div className="book-text">
@@ -56,7 +62,7 @@ const Details = ({ pairingList, clearClicked, updateError }) => {
                     <div className="drink-text">
                         <div className="ingredient-glass-instruction-wrapper">
                             <p style={renderCheck(drinkDetails.ingredient1)}>Ingredients:</p>
-                            <ol>
+                            <ol className="ingredient-list">
                                 <li style={renderCheck(drinkDetails.ingredient1)}>{`${ drinkDetails.ingredient1} ~ ${ drinkDetails.measure1}`}</li>
                                 <li style={renderCheck(drinkDetails.ingredient2)}>{`${ drinkDetails.ingredient2} ~ ${ drinkDetails.measure2}`}</li>
                                 <li style={renderCheck(drinkDetails.ingredient3)}>{`${ drinkDetails.ingredient3} ~ ${ drinkDetails.measure3}`}</li>
