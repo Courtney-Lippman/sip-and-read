@@ -63,7 +63,7 @@ const updateError = () => {
   setError(true);
 };
 
-const savePairing = (id) => {
+const toggleSavePairing = (id) => {
   const newPairingsList = pairingList.map(pairing => {
     if(pairing.book.title === id) {
       return {
@@ -105,6 +105,7 @@ const savePairing = (id) => {
           element={
             <Favorites 
             pairingList={pairingList}
+            toggleSavePairing={toggleSavePairing}
             />}
         />
         <Route
@@ -114,7 +115,7 @@ const savePairing = (id) => {
               pairingList={pairingList}
               clearClicked={clearClicked}
               updateError={updateError}
-              savePairing={savePairing}
+              toggleSavePairing={toggleSavePairing}
             />
           }
         />

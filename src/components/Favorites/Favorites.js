@@ -2,7 +2,7 @@ import './Favorites.css'
 import FavBookCard from '../FavBookCard/FavBookCard'
 
 
-const Favorites = ({ pairingList }) => {
+const Favorites = ({ pairingList, toggleSavePairing }) => {
     const favPairingsList = pairingList.reduce((acc, pairing) => {
         if(pairing.isSaved) {
             acc.push(
@@ -11,7 +11,7 @@ const Favorites = ({ pairingList }) => {
                 title={pairing.book.title}
                 image={pairing.book.bookImg}
                 drink={pairing.drink.name}
-                isSaved={pairing.isSaved}
+                toggleSavePairing={toggleSavePairing}
                 />
             )
         }
