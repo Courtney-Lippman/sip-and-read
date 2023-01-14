@@ -4,6 +4,7 @@ import { getDrinkDetails } from "../../apiCalls/GETRequests"
 import { cleanRandomDrinkData } from "../../utilities/utilities"
 import { BsSuitHeartFill } from 'react-icons/bs'
 import './Details.css'
+import { render } from "@testing-library/react"
 
 const Details = ({ pairingList, clearClicked, updateError, savePairing }) => {
     const [drinkDetails, setDrinkDetails] = useState({})
@@ -37,7 +38,8 @@ const Details = ({ pairingList, clearClicked, updateError, savePairing }) => {
     return (
         <div className="details-page">
             <div className="save-button-wrapper">
-            <button className="save-button" onClick={() => {savePairing(bookDetails.title)}}>Save Pairing to favorites <BsSuitHeartFill /></button>
+            <button style={renderCheck(!foundPairing.isSaved)} className="save-button" onClick={() => {savePairing(bookDetails.title)}}>Save Pairing to favorites <BsSuitHeartFill /></button>
+            <p className="saved-message" style={renderCheck(foundPairing.isSaved)}>This pairing has been saved.</p>
             </div>
             <h1 className="details-page-title">The Pairing</h1>
             <div className="details">
