@@ -4,16 +4,37 @@ import { getDrinkDetails } from "../../apiCalls/GETRequests"
 import { cleanRandomDrinkData } from "../../utilities/utilities"
 import { BsSuitHeartFill } from 'react-icons/bs'
 import Error from '../Error/Error'
+import PageNotFound from "../PageNotFound/PageNotFound"
 import './Details.css'
 
-const Details = ({ pairingList, clearClicked, toggleSavePairing }) => {
+const Details = ({ clearClicked, toggleSavePairing, pairingList, setClicked }) => {
     const [drinkDetails, setDrinkDetails] = useState({})
     const [isLoading, setIsLoading] = useState(true)
     const [drinkError, setDrinkError] = useState(false)
     const { id } = useParams()
-    const foundPairing = pairingList.find(pairing => pairing.book.title === id)
-    const drinkId = foundPairing.drink.id
-    const bookDetails = foundPairing.book
+    const drinkBook = id.split('  ')
+    const foundPairing = pairingList.find(pairing => pairing.book.title === drinkBook[0])
+    const drinkId = drinkBook[1]
+    let bookDetails
+    if(foundPairing) {
+        bookDetails = foundPairing.book
+    } else {
+        bookDetails = {
+            amazonProductUrl:'',
+            author: '',
+            bookImg: '',
+            nytReviewLink: '',
+            buyLinks: '',
+            description: '',
+            publisher: '',
+            title: '',
+            isSaved: '',
+        }
+    }
+
+
+
+
 
     useEffect(() => {
         clearClicked()
@@ -30,7 +51,10 @@ const Details = ({ pairingList, clearClicked, toggleSavePairing }) => {
                 setIsLoading(false)
             }
         }
-        createDrinkDetails(drinkId)
+        if(drinkId) {
+            createDrinkDetails(drinkId)
+        }
+
     }, [])
 
     const renderCheck = (detail) => {
@@ -42,6 +66,7 @@ const Details = ({ pairingList, clearClicked, toggleSavePairing }) => {
 
     return (
         <div className="full-page">
+            {foundPairing && <div className="full-page content-exists">
             {isLoading && <div className="is-loading-wrapper">Loading...</div>}
             {!isLoading && <div className="details-page">
                 <div className="save-button-wrapper">
@@ -95,6 +120,7 @@ const Details = ({ pairingList, clearClicked, toggleSavePairing }) => {
                     </div>
                     </div>
                 </div>
+            </div>}
             </div>}
         </div>
     )

@@ -12,6 +12,7 @@ const Favorites = ({ pairingList, toggleSavePairing, error }) => {
                 title={pairing.book.title}
                 image={pairing.book.bookImg}
                 drink={pairing.drink.name}
+                drinkId={pairing.drink.id}
                 toggleSavePairing={toggleSavePairing}
                 />
             )

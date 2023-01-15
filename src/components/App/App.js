@@ -53,10 +53,6 @@ const clearClicked = () => {
   setClicked('')
 }
 
-const updateError = () => {
-  setError(true);
-};
-
 const toggleSavePairing = (id) => {
   const newPairingsList = pairingList.map(pairing => {
     if(pairing.book.title === id) {
@@ -69,6 +65,7 @@ const toggleSavePairing = (id) => {
   })
   setPairingList(newPairingsList)
 }
+
 
   return (
     <div className="App">
@@ -100,9 +97,10 @@ const toggleSavePairing = (id) => {
           path="/details/:id"
           element={
             <Details
-              pairingList={pairingList}
               clearClicked={clearClicked}
               toggleSavePairing={toggleSavePairing}
+              pairingList={pairingList}
+              setClicked={setClicked}
             />
           }
         />

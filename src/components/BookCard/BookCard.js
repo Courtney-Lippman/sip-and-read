@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom"
 const BookCard = ({ drink, book }) => {
     const navigate = useNavigate()
     const handleClick = () => {
-      navigate(`/details/${book.title}`)
+      navigate(`/details/${book.title}  ${drink.id}`)
     }
     return (
         <button onClick={handleClick} className="book-card">
