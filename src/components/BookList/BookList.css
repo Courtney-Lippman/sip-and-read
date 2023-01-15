@@ -1,3 +1,9 @@
+.is-loading-wrapper {
+    margin-top: 10vh;
+    font-size: 4vw;
+    color:#000000;
+}
+
 .booklist {
     display: flex;
     flex-direction: column;
