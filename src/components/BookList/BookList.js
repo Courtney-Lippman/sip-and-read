@@ -1,6 +1,7 @@
 import './BookList.css'
 import BookCard from '../BookCard/BookCard'
 import Error from '../Error/Error'
+import PropTypes from 'prop-types'
 
 const BookList = ({ pairingList, isLoading, error }) => {
     const allPairings = pairingList.map(pairing => {
@@ -21,3 +22,9 @@ const BookList = ({ pairingList, isLoading, error }) => {
 }
 
 export default BookList
+
+BookList.propTypes = {
+    pairingList: PropTypes.arrayOf(PropTypes.object),
+    isLoading: PropTypes.bool,
+    error: PropTypes.bool,
+}

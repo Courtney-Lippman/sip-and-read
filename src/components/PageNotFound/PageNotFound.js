@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import './PageNotFound.css'
+import PropTypes from 'prop-types'
 
 const PageNotFound = ({ clearClicked, setClicked }) => {
     clearClicked()
@@ -16,3 +17,8 @@ const PageNotFound = ({ clearClicked, setClicked }) => {
 }
 
 export default PageNotFound
+
+PageNotFound.propTypes = {
+    setClicked: PropTypes.func.isRequired,
+    clearClicked: PropTypes.func.isRequired,
+}
