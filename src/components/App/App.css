@@ -3,6 +3,16 @@ header {
     justify-content: space-between;
 }
 
+.nyt-api-logo-wrapper {
+    padding-bottom: 10px;
+
+}
+
+.nyt-api-logo > img {
+    padding: 30px;
+    padding-bottom: 10px;
+}
+
 
 @media screen and (max-width: 600px) {
     header {

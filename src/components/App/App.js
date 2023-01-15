@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react'
-import { Route, NavLink, Routes, useLocation } from "react-router-dom"
+import { Route, Routes } from "react-router-dom"
 import './App.css'
+import nytApiLogo from '../../images/nytApiLogo.png'
 import { getData } from '../../apiCalls/GETRequests'
 import { cleanBookListData, cleanDrinkListData } from '../../utilities/utilities'
-import Error from '../Error/Error'
 import Logo from '../Logo/Logo'
 import Navbar from '../Navbar/Navbar'
 import BookList from '../BookList/BookList'
@@ -106,7 +106,11 @@ const toggleSavePairing = (id) => {
         />
         <Route path="*" element={<PageNotFound clearClicked={clearClicked} setClicked={setClicked} />} />
       </Routes>
-
+      <div className='nyt-api-logo-wrapper'>
+        <a className='nyt-api-logo' href='https://developer.nytimes.com'><img src={nytApiLogo} alt='New York Times Api Branding Logo'  /></a>
+        <p>Drink Data provided by <a href='https://www.thecocktaildb.com/api.php'>TheCocktailDB.</a></p>
+        
+      </div> 
     </div>
   );
 
