@@ -21,3 +21,9 @@
 .booklist-page-title {
     font-size: 3vw;
 }
+
+@media screen and (max-width: 500px) {
+    .booklist-page-title {
+        font-size: 10vw;
+    }
+}
