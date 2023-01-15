@@ -15,3 +15,34 @@
 .favorites-page-title {
     font-size: 3vw;
 }
+
+@media screen and (max-width: 500px) {
+    .favorites-page-title {
+        font-size: 8vw;
+    }
+
+    .no-fav-message {
+        font-size: 6vw;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 870px) and (min-width: 501px)  {
+
+    .favorites-page-title {
+        font-size: 5vw;
+    }
+
+    .no-fav-message {
+        font-size: 4vw;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .favorites-page-title {
+        margin-top: 50px;
+        text-decoration: underline;
+    }
+
+}
