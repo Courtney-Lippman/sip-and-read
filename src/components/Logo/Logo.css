@@ -12,3 +12,31 @@
 .logo-text {
     font-size: 4vw;
 }
+
+
+@media screen and (max-width: 870px) and (min-width: 501px)  {
+    .logo-img {
+        width: 6vw;
+        height: auto;
+        margin: 0 10px;
+    }
+    
+    .logo-text {
+        font-size: 6vw;
+    }
+
+    
+}
+
+@media screen and (max-width: 600px) {
+    .logo-img {
+        width: 6vw;
+        height: auto;
+        margin: 0 10px;
+
+    }
+
+    .logo-text {
+        font-size: 8vw;
+    }
+}

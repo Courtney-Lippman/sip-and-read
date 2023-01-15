@@ -1,11 +1,20 @@
 .style-button {
     color: #000000;
     width: 4vw;
-    height: auto;
-    margin: 10px 10px;
+    font-size: 4vw;
+    margin: 10px 0.5vw;
 }
 
 .selected {
     border-bottom: 4px solid #000000;
     cursor: default;
+}
+
+
+@media screen and (max-width: 600px) {
+    .style-button {
+        font-size: 8vw;
+        width: 8vw;
+        margin: 10px 1vw;
+    }
 }
