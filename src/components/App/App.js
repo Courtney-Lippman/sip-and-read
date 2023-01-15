@@ -91,6 +91,7 @@ const toggleSavePairing = (id) => {
             pairingList={pairingList}
             toggleSavePairing={toggleSavePairing}
             error={error}
+            setClicked={setClicked}
             />}
         />
         <Route
@@ -100,7 +101,6 @@ const toggleSavePairing = (id) => {
               clearClicked={clearClicked}
               toggleSavePairing={toggleSavePairing}
               pairingList={pairingList}
-              setClicked={setClicked}
             />
           }
         />

@@ -4,10 +4,9 @@ import { getDrinkDetails } from "../../apiCalls/GETRequests"
 import { cleanRandomDrinkData } from "../../utilities/utilities"
 import { BsSuitHeartFill } from 'react-icons/bs'
 import Error from '../Error/Error'
-import PageNotFound from "../PageNotFound/PageNotFound"
 import './Details.css'
 
-const Details = ({ clearClicked, toggleSavePairing, pairingList, setClicked }) => {
+const Details = ({ clearClicked, toggleSavePairing, pairingList}) => {
     const [drinkDetails, setDrinkDetails] = useState({})
     const [isLoading, setIsLoading] = useState(true)
     const [drinkError, setDrinkError] = useState(false)
@@ -18,23 +17,7 @@ const Details = ({ clearClicked, toggleSavePairing, pairingList, setClicked }) =
     let bookDetails
     if(foundPairing) {
         bookDetails = foundPairing.book
-    } else {
-        bookDetails = {
-            amazonProductUrl:'',
-            author: '',
-            bookImg: '',
-            nytReviewLink: '',
-            buyLinks: '',
-            description: '',
-            publisher: '',
-            title: '',
-            isSaved: '',
-        }
     }
-
-
-
-
 
     useEffect(() => {
         clearClicked()
@@ -51,9 +34,7 @@ const Details = ({ clearClicked, toggleSavePairing, pairingList, setClicked }) =
                 setIsLoading(false)
             }
         }
-        if(drinkId) {
-            createDrinkDetails(drinkId)
-        }
+        createDrinkDetails(drinkId)
 
     }, [])
 
