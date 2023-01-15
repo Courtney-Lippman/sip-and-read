@@ -3,11 +3,13 @@ import { useEffect, useState } from "react"
 import { getDrinkDetails } from "../../apiCalls/GETRequests"
 import { cleanRandomDrinkData } from "../../utilities/utilities"
 import { BsSuitHeartFill } from 'react-icons/bs'
+import Error from '../Error/Error'
 import './Details.css'
 
-const Details = ({ pairingList, clearClicked, updateError, toggleSavePairing }) => {
+const Details = ({ pairingList, clearClicked, toggleSavePairing }) => {
     const [drinkDetails, setDrinkDetails] = useState({})
     const [isLoading, setIsLoading] = useState(true)
+    const [drinkError, setDrinkError] = useState(false)
     const { id } = useParams()
     const foundPairing = pairingList.find(pairing => pairing.book.title === id)
     const drinkId = foundPairing.drink.id
@@ -20,10 +22,11 @@ const Details = ({ pairingList, clearClicked, updateError, toggleSavePairing }) 
                 const drinkDetailsData = await getDrinkDetails(id)
                 const cleanDrinkDetails = cleanRandomDrinkData(drinkDetailsData)
                 setDrinkDetails(cleanDrinkDetails)
+                setDrinkError(false)
                 setIsLoading(false)
             } catch(error) {
                 console.error(error)
-                // setError(true)
+                setDrinkError(true)
                 setIsLoading(false)
             }
         }
@@ -64,6 +67,7 @@ const Details = ({ pairingList, clearClicked, updateError, toggleSavePairing }) 
                         <h1 className="drink-book-title">{ drinkDetails.name}</h1>
                     <div className="drink-details-wrapper">
                         <div className="drink-text">
+                            {drinkError && <Error messageType={'drink'} />}
                             <div className="ingredient-glass-instruction-wrapper">
                                 <p style={renderCheck(drinkDetails.ingredient1)}>Ingredients:</p>
                                 <ol className="ingredient-list">
