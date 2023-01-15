@@ -39,7 +39,7 @@ function App() {
         })
 
         setPairingList(createdPairingList)
-
+        setIsLoading(false)
       } catch(error) {
               console.error(error)
               setError(true)

@@ -1,3 +1,14 @@
+.full-page {
+    display: flex;
+    justify-content: center;
+}
+
+.is-loading-wrapper {
+    margin-top: 10vh;
+    font-size: 4vw;
+    color:#000000;
+}
+
 .details-page {
     display: flex;
     flex-direction: column;
