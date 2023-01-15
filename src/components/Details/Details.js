@@ -56,7 +56,7 @@ const Details = ({ pairingList, clearClicked, toggleSavePairing }) => {
                     <div className="book-details-wrapper">
                         <img className="book-drink-img" style={renderCheck(bookDetails.bookImg)} src={bookDetails.bookImg} alt={"Book Cover of " + bookDetails.title} />
                         <div className="book-text">
-                            <p style={renderCheck(bookDetails.description)}>${bookDetails.description}</p>
+                            <p style={renderCheck(bookDetails.description)}>{bookDetails.description}</p>
                             <p style={renderCheck(bookDetails.publisher)}>Publisher: {bookDetails.publisher}</p>
                             <a style={renderCheck(bookDetails.nytReviewLink)} href={bookDetails.nytReviewLink}>The New York Times Reviews</a>
                             <a style={renderCheck(bookDetails.amazonProductUrl)} href={bookDetails.amazonProductUrl}>Buy on amazon!</a>
