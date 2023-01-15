@@ -1,8 +1,9 @@
 import './Favorites.css'
 import FavBookCard from '../FavBookCard/FavBookCard'
+import Error from '../Error/Error'
 
 
-const Favorites = ({ pairingList, toggleSavePairing }) => {
+const Favorites = ({ pairingList, toggleSavePairing, error }) => {
     const favPairingsList = pairingList.reduce((acc, pairing) => {
         if(pairing.isSaved) {
             acc.push(
@@ -21,7 +22,8 @@ const Favorites = ({ pairingList, toggleSavePairing }) => {
     return (
         <div className='favorites'>
             <h1 className='favorites-page-title'>The Favorites List</h1>
-            {favPairingsList.length === 0 && <h1 className="no-fav-message">You currently have no favorite pairings. Save some pairings that you like!</h1>}
+            {error && <Error />}
+            {favPairingsList.length === 0 && <h1 className="no-fav-message">You currently have no favorite pairings.</h1>}
             <div className='favorites-card-wrapper'>{favPairingsList}</div>
         </div>
     )
