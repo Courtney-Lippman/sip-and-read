@@ -15,7 +15,6 @@ export const cleanBookListData = (data) => {
                       } = book
                     //possible put a GET request for drink to pair with book here.... is this possible? I could then create a drink key that would house the drink information....
                     const cleanedBook = {
-                        id: Date.now(),
                         amazonProductUrl: amazon_product_url,
                         author,
                         bookImg: book_image,
@@ -24,7 +23,6 @@ export const cleanBookListData = (data) => {
                         description,
                         publisher,
                         title,
-
                     }
                     cleanBookList.push(cleanedBook)
                 }

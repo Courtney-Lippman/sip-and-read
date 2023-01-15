@@ -2,10 +2,10 @@ import './FavBookCard.css'
 import { BsTrash } from 'react-icons/bs'
 import { useNavigate } from "react-router-dom"
 
-const FavBookCard = ({ title, image, drink, toggleSavePairing }) => {
+const FavBookCard = ({ title, image, drink, toggleSavePairing, drinkId }) => {
     const navigate = useNavigate()
     const handleClick = () => {
-      navigate(`/details/${title}`)
+      navigate(`/details/${title}  ${drinkId}`)
     }
     return (
         <div className='fav-book-card'>
