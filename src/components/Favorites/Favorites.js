@@ -3,7 +3,8 @@ import FavBookCard from '../FavBookCard/FavBookCard'
 import Error from '../Error/Error'
 
 
-const Favorites = ({ pairingList, toggleSavePairing, error }) => {
+const Favorites = ({ pairingList, toggleSavePairing, error, setClicked }) => {
+    setClicked('favorites')
     const favPairingsList = pairingList.reduce((acc, pairing) => {
         if(pairing.isSaved) {
             acc.push(
