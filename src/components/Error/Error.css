@@ -1,0 +1,21 @@
+.error {
+    margin-top: 10vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #000000;
+}
+
+.error-icon {
+    font-size: 5vw;
+}
+
+.oops {
+    font-size: 2vw;
+    text-align: center;
+}
+
+.message {
+    font-size: 1.5vw;
+    text-align: center;
+}
