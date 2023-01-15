@@ -24,6 +24,21 @@
 
 @media screen and (max-width: 500px) {
     .booklist-page-title {
-        font-size: 10vw;
+        font-size: 8vw;
     }
+}
+
+@media screen and (max-width: 870px) and (min-width: 501px)  {
+
+    .booklist-page-title {
+        font-size: 5vw;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .booklist-page-title {
+        margin-top: 50px;
+        text-decoration: underline;
+    }
+
 }
