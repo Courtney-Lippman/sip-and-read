@@ -111,7 +111,7 @@ const toggleSavePairing = (id) => {
             />
           }
         />
-        {/* <Route path="*" element={<PageNotFound />} /> */}
+        <Route path="*" element={<PageNotFound clearClicked={clearClicked} setClicked={setClicked} />} />
       </Routes>
 
     </div>
