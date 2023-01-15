@@ -211,3 +211,10 @@
     }
     
 }
+
+@media screen and (max-width: 600px) {
+    .details-page-title {
+        text-decoration: underline;
+    }
+
+}

@@ -27,3 +27,44 @@
 .trash {
     font-size: 2vw;
 }
+
+@media screen and (max-width: 500px) {
+    .fav-book-card {
+        max-width: 50vw;
+    }
+    
+    .fav-book-card > img {
+        width: 50vw;
+    }
+
+    .fav-drink-name {
+        font-size: 6vw;
+        margin-top: 10px;
+    }
+
+    .trash {
+        font-size: 6.5vw;
+    }
+    
+}
+
+@media screen and (max-width: 870px) and (min-width: 501px)  {
+    .fav-book-card {
+        max-width: 20vw;
+    }
+    
+    .fav-book-card > img {
+        width: 20vw;
+    }
+
+    .fav-drink-name {
+        font-size: 3vw;
+        margin-top: 10px;
+    }
+
+    .trash {
+        font-size: 3.5vw;
+    }
+
+    
+}
