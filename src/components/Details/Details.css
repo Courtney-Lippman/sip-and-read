@@ -1,6 +1,8 @@
 .full-page {
     display: flex;
     justify-content: center;
+    padding-top: 0px;
+    margin-top: 0px;
 }
 
 .is-loading-wrapper {
@@ -13,7 +15,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 40px;
+    margin-top: 10px;
 }
 
 .save-button-wrapper {
@@ -23,13 +25,13 @@
 }
 
 .save-button {
-    font-size: 1vw;
+    font-size: 2vw;
     background-color: #ffffff;
     border: solid #000000;
     border-radius: 6px;
     box-shadow: 5px 5px 10px 2px rgba(0,0,0,.8);
     padding: 0.5vw;
-    margin-right: 1vw;
+    margin-right: 2vw;
     transition: .3s;
     font-family: inherit;
 }
@@ -78,6 +80,7 @@
     flex-direction: column;
     align-items: center;
     border: solid 4px black;
+    border-radius: 6px;
     width: 45vw;
 
 }
@@ -92,6 +95,7 @@
     flex-direction: column;
     align-items: center;
     border: solid 4px black;
+    border-radius: 6px;
     width: 45vw;
 
 }
@@ -125,4 +129,85 @@
 
 .ingredient-list {
     padding-inline-start: 3vw;
+}
+
+@media screen and (max-width: 815px) {
+    .save-button {
+        font-size: 2vw;
+        box-shadow: 3px 3px 6px 1px rgba(0,0,0,.8);
+        padding: 0.5vw;
+        margin-right: 4vw;
+    }
+
+    .saved-message {
+        font-size: 2vw;
+        padding: 2vh;
+        margin-right: 2vh;
+    }
+    
+    .details-page-title {
+        font-size: 4vw;
+        margin-top: 0px;
+    }
+    .details {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .book-title-wrapper {
+        width: 80vw;
+        border: solid 3px black;
+    }
+
+    .author {
+        font-size: 2vw;
+    }
+
+    .drink-title-wrapper{
+        margin-top: 2vh;
+        width: 80vw;
+        border: solid 3px black;
+    }
+
+    .drink-book-title {
+        font-size: 3vw;
+        text-align: center;
+        font-weight: 900;
+        text-decoration-line: underline;
+    }
+
+    .book-drink-img {
+        width: 20vw;
+        height: auto;
+        margin: 3vw;
+    }
+
+    .book-text {
+        font-size: 3vw;
+        padding: 0 2vw;
+        padding-bottom: 1vh;
+    }
+    
+    .drink-text {
+        font-size: 3vw;
+        padding: 0 2vw;
+    
+    }
+
+    .ingredient-list {
+        padding-inline-start: 8vw;
+    }
+    
+}
+
+
+@media screen and (min-width: 1100px) {
+    .save-button {
+        font-size: 1vw;
+        box-shadow: 5px 5px 10px 2px rgba(0,0,0,.8);
+        padding: 0.5vw;
+        margin-right: 1vw;
+    }
+    
 }
