@@ -31,6 +31,7 @@
     padding: 0.5vw;
     margin-right: 1vw;
     transition: .3s;
+    font-family: inherit;
 }
 
 .save-button:hover, .save-button:focus {
@@ -59,6 +60,8 @@
 .drink-book-title {
     font-size: 2vw;
     text-align: center;
+    font-weight: 900;
+    text-decoration-line: underline;
 }
 
 .book-title {
@@ -66,7 +69,8 @@
 }
 
 .author {
-    font-size: 1vw;
+    font-size: 1.5vw;
+    color:#000000;
 }
 
 .book-title-wrapper {
