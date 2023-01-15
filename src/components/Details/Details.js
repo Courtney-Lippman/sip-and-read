@@ -4,9 +4,10 @@ import { getDrinkDetails } from "../../apiCalls/GETRequests"
 import { cleanRandomDrinkData } from "../../utilities/utilities"
 import { BsSuitHeartFill } from 'react-icons/bs'
 import Error from '../Error/Error'
+import PropTypes from 'prop-types'
 import './Details.css'
 
-const Details = ({ clearClicked, toggleSavePairing, pairingList}) => {
+const Details = ({ clearClicked, toggleSavePairing, pairingList }) => {
     const [drinkDetails, setDrinkDetails] = useState({})
     const [isLoading, setIsLoading] = useState(true)
     const [drinkError, setDrinkError] = useState(false)
@@ -108,3 +109,9 @@ const Details = ({ clearClicked, toggleSavePairing, pairingList}) => {
 }
 
 export default Details
+
+Details.propTypes = {
+    clearClicked: PropTypes.func.isRequired,
+    toggleSavePairing: PropTypes.func.isRequired,
+    pairingList: PropTypes.arrayOf(PropTypes.object)
+}

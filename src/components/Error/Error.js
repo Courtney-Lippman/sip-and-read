@@ -1,5 +1,6 @@
 import './Error.css'
 import { BiError } from 'react-icons/bi'
+import PropTypes from 'prop-types'
 
 const Error = ({ messageType }) => {
     let message1
@@ -21,3 +22,7 @@ const Error = ({ messageType }) => {
 }
 
 export default Error
+
+Error.propTypes = {
+    messageType: PropTypes.string.isRequired
+}

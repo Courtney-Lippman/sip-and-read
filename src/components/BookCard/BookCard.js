@@ -1,5 +1,6 @@
 import './BookCard.css'
 import { useNavigate } from "react-router-dom"
+import PropTypes from 'prop-types'
 
 const BookCard = ({ drink, book }) => {
     const navigate = useNavigate()
@@ -15,3 +16,9 @@ const BookCard = ({ drink, book }) => {
 }
 
 export default BookCard
+
+BookCard.propTypes = {
+    drink: PropTypes.objectOf(PropTypes.string),
+    book: PropTypes.object,
+}
+

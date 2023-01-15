@@ -1,6 +1,7 @@
 import './Favorites.css'
 import FavBookCard from '../FavBookCard/FavBookCard'
 import Error from '../Error/Error'
+import PropTypes from 'prop-types'
 
 
 const Favorites = ({ pairingList, toggleSavePairing, error, setClicked }) => {
@@ -32,3 +33,9 @@ const Favorites = ({ pairingList, toggleSavePairing, error, setClicked }) => {
 }
 
 export default Favorites
+
+Favorites.propTypes = {
+    pairingList: PropTypes.arrayOf(PropTypes.object), toggleSavePairing: PropTypes.func.isRequired,
+    error: PropTypes.bool,
+    setClicked: PropTypes.func.isRequired,
+}

@@ -1,6 +1,7 @@
 import './FavBookCard.css'
 import { BsTrash } from 'react-icons/bs'
 import { useNavigate } from "react-router-dom"
+import PropTypes from 'prop-types'
 
 const FavBookCard = ({ title, image, drink, toggleSavePairing, drinkId }) => {
     const navigate = useNavigate()
@@ -19,3 +20,11 @@ const FavBookCard = ({ title, image, drink, toggleSavePairing, drinkId }) => {
 }
 
 export default FavBookCard
+
+FavBookCard.propTypes = {
+    toggleSavePairing: PropTypes.func.isRequired,
+    title: PropTypes.string,
+    image: PropTypes.string,
+    drink: PropTypes.string,
+    drinkId: PropTypes.string,
+}
