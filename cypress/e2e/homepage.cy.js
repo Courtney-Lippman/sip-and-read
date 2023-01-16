@@ -6,7 +6,7 @@ describe('Homepage', () => {
         })
         cy.intercept("https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?a=Alcoholic", {
             method:"GET",
-            fixture:"../fixtures/cocktailsIDOnly.json"
+            fixture:"../fixtures/singleCocktailIdOnly.json"
 
         })
         cy.visit('http://localhost:3000/')
@@ -66,15 +66,10 @@ describe('Homepage', () => {
      })
     
     it('Should display book and drink details when a book card is clicked', () => {
-        let id
-        cy.get(':nth-child(1) > .drink-name').invoke('text').then((text) => {
-            id = text
-        })
-        cy.intercept(`https://www.thecocktaildb.com/api/json/v2/9973533/lookup.php?i=${id}`, {
+        cy.intercept('https://www.thecocktaildb.com/api/json/v2/9973533/lookup.php?i=15395', {
             method:"GET",
             fixture: "../fixtures/cocktailDetails.json"
         })
-        
           cy.get('.bookcard-wrapper > :nth-child(1)').click()
           cy.get('.details-page-title').should('contain', 'The Pairing')
           cy.get('.save-button').should('exist')
@@ -102,15 +97,10 @@ describe('Homepage', () => {
     })
 
      it('Should display all books from the pairingList when the home button is clicked from details page', () => {
-        let id
-        cy.get(':nth-child(1) > .drink-name').invoke('text').then((text) => {
-            id = text
-        })
-        cy.intercept(`https://www.thecocktaildb.com/api/json/v2/9973533/lookup.php?i=${id}`, {
+          cy.intercept('https://www.thecocktaildb.com/api/json/v2/9973533/lookup.php?i=15395', {
             method:"GET",
             fixture: "../fixtures/cocktailDetails.json"
         })
-        
           cy.get('.bookcard-wrapper > :nth-child(1)').click()
           cy.get('.details-page-title').should('contain', 'The Pairing')
           cy.get('.save-button').should('exist')
