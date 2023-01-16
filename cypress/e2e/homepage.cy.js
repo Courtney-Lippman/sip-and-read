@@ -37,9 +37,25 @@ describe('Homepage', () => {
         cy.get(':nth-child(3) > .drink-name').should('exist')
     })
 
-//     it('Should display all books from the pairingList when the home button is clicked from details page', () => {
+    it('Should display all books from the pairingList when the home button is clicked from details page', () => {
+            cy.get('#fav-button').click()
+            
 
-//     })
+            cy.get('.booklist-page-title').should('be.visible')
+            .and('contain', 'The Book List')
+        cy.get('.bookcard-wrapper > :nth-child(1)').within(()=> {
+            cy.get('img').should('have.attr', 'src', "https:\/\/storage.googleapis.com\/du-prd\/books\/images\/9781668001226.jpg")
+        })
+        cy.get(':nth-child(1) > .drink-name').should('exist')
+        cy.get('.bookcard-wrapper > :nth-child(2)').within(()=> {
+            cy.get('img').should('have.attr', 'src', "https:\/\/storage.googleapis.com\/du-prd\/books\/images\/9780593237465.jpg")
+        })
+        cy.get(':nth-child(2) > .drink-name').should('exist')
+        cy.get('.bookcard-wrapper > :nth-child(3)').within(()=> {
+            cy.get('img').should('have.attr', 'src', "https:\/\/storage.googleapis.com\/du-prd\/books\/images\/9780593083888.jpg")
+        })
+        cy.get(':nth-child(3) > .drink-name').should('exist')
+    })
 
 //     it('Should display all books from the pairingList when the home button is clicked from favorites page', () => {
 
