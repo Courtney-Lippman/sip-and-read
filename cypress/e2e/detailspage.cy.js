@@ -1,4 +1,3 @@
-import { BsTrash } from 'react-icons/bs'
 describe('Details Page', () => {
     beforeEach(() => {
         cy.intercept("https://api.nytimes.com/svc/books/v3/lists/full-overview.json?api-key=SxKAfSsd0aI1RxZ1XPKUIjpd6w7RjZzJ", {
@@ -8,11 +7,10 @@ describe('Details Page', () => {
         cy.intercept("https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?a=Alcoholic", {
             method:"GET",
             fixture:"../fixtures/singleCocktailIDonly.json"
-
         })
         cy.intercept("https://www.thecocktaildb.com/api/json/v2/9973533/lookup.php?i=15395", {
             method:"GET",
-            fixture:"../fixtures/singleCocktailIDonly.json"
+            fixture:"../fixtures/cocktailDetails.json"
 
         })
         cy.visit('http://localhost:3000/')
@@ -91,59 +89,32 @@ describe('Details Page', () => {
         cy.get('.details-page').should('exist')
 
     })
+})
 
-    describe('Server-side error for NYT Book API', () => {
-        beforeEach(() => {
-            cy.intercept('https://api.nytimes.com/svc/books/v3/lists/full-overview.json?api-key=SxKAfSsd0aI1RxZ1XPKUIjpd6w7RjZzJ', {
+describe('Server-side error for TheCocktailsDB API GET by ID url', () => {
+    beforeEach(() => {
+        cy.intercept("https://api.nytimes.com/svc/books/v3/lists/full-overview.json?api-key=SxKAfSsd0aI1RxZ1XPKUIjpd6w7RjZzJ", {
+                method:"GET",
+                fixture: "../fixtures/nytBookList.json"
+        })
+        cy.intercept("https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?a=Alcoholic", {
+                method:"GET",
+                fixture:"../fixtures/singleCocktailIDonly.json"
+        })
+        cy.intercept('https://www.thecocktaildb.com/api/json/v2/9973533/lookup.php?i=15395', {
               method:"GET"}, {
                 statusCode: 500,
-              })
-              cy.visit('http://localhost:3000/')
-          })
-    
-        it('Should show response when there is a server error', () => {
-            cy.get('.error').should('exist')
-            cy.get('.error-icon').should('be.visible')
-            cy.get('.oops').should('contain', 'Oops! Something went wrong!' )
-            cy.get('.message').should('contain', 'Please try again later.')
         })
+
+            cy.visit('http://localhost:3000/')
+            cy.get('.bookcard-wrapper > :nth-child(1)').click()
     })
 
-    describe('Server-side error for The CocktailsDB Alcohol Drink List API', () => {
-        beforeEach(() => {
-            cy.intercept('https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?a=Alcoholic', {
-              method:"GET"}, {
-                statusCode: 500,
-              })
-              cy.visit('http://localhost:3000/')
-          })
     
-        it('Should show response when there is a server error', () => {
-            cy.get('.error').should('exist')
-            cy.get('.error-icon').should('be.visible')
-            cy.get('.oops').should('contain', 'Oops! Something went wrong!' )
-            cy.get('.message').should('contain', 'Please try again later.')
-        })
-    
+    it('Should show response when there is a server error', () => {
+        cy.get('.error').should('exist')
+        cy.get('.error-icon').should('be.visible')
+        cy.get('.oops').should('contain', 'Oops! Something went wrong with our drink information.' )
+        cy.get('.message').should('contain', 'Pair this book with your favorite beer instead!')
     })
-
-    // describe('Server-side error for TheCocktailsDB API GET by ID url', () => {
-    //     beforeEach(() => {
-    //         cy.intercept('', {
-    //           method:"GET"}, {
-    //             statusCode: 500,
-    //           })
-    //           cy.visit('http://localhost:3000/')
-    //       })
-    
-    //     it('Should show response when there is a server error', () => {
-    //         cy.get('.error').should('exist')
-    //         cy.get('.error-icon').should('be.visible')
-    //         cy.get('.oops').should('contain', 'Oops! Something went wrong!' )
-    //         cy.get('.message').should('contain', 'Please try again later.')
-    //     })
-    // })
-
-
-
 })
