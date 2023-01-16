@@ -1,0 +1,48 @@
+{
+    "results": {
+        "lists": [
+            {
+                "list_id": 704,
+                "list_name": "Combined Print and E-Book Fiction",
+                "books": [
+                    {
+                        "amazon_product_url": "https:\/\/www.amazon.com\/dp\/1668001225?tag=NYTBSREV-20",
+                        "author": "Colleen Hoover",
+                        "book_image": "https:\/\/storage.googleapis.com\/du-prd\/books\/images\/9781668001226.jpg",
+                        "book_image_width": 322,
+                        "book_image_height": 500,
+                        "description": "In the sequel to \u201cIt Ends With Us,\u201d Lily deals with her jealous ex-husband as she reconnects with her first boyfriend.",
+                        "publisher": "Atria",
+                        "title": "IT STARTS WITH US"
+                    }
+                ]
+            },
+            {
+                "list_id": 708,
+                "list_name": "Combined Print and E-Book Nonfiction",
+                "books": [
+                    {
+                        "amazon_product_url": "https:\/\/www.amazon.com\/dp\/0593237463?tag=NYTBSREV-20",
+                        "author": "Michelle Obama",
+                        "book_image": "https:\/\/storage.googleapis.com\/du-prd\/books\/images\/9780593237465.jpg",
+                        "book_image_width": 329,
+                        "book_image_height": 500,
+                        "description": "The former first lady shares personal stories and the tools she uses to deal with difficult situations.",
+                        "publisher": "Crown",
+                        "title": "THE LIGHT WE CARRY"
+                    },
+                    {
+                        "amazon_product_url": "https:\/\/www.amazon.com\/dp\/0593083881?tag=NYTBSREV-20",
+                        "author": "Gabor Mat\u00e9 with Daniel Mat\u00e9",
+                        "book_image": "https:\/\/storage.googleapis.com\/du-prd\/books\/images\/9780593083888.jpg",
+                        "book_image_width": 331,
+                        "book_image_height": 500,
+                        "description": "The potential ways in which trauma and stress from modern-day living can affect our physical health.",
+                        "publisher": "Avery",
+                        "title": "THE MYTH OF NORMAL"
+                    }
+                ]
+            }
+        ]
+    }
+}
