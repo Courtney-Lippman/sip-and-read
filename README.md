@@ -35,6 +35,10 @@ GitHub Project Board | Figma
 ## Learning Goals
 Use React, Router, Asynchronous JavaScript, and End to End testing with Cypress to create an application that demonstrates the mastery of the technologies learned in the last 5 weeks.
 
+## Deployed Link
+
+https://sip-and-read.vercel.app/
+
 ## Preview
 
 ![Favoriting](https://media.giphy.com/media/gxXe0ge71aMpLJrtkJ/giphy.gif)
