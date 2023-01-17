@@ -1,4 +1,4 @@
-import { Route, NavLink, Routes, useLocation } from "react-router-dom"
+import { NavLink } from "react-router-dom"
 import { FaHome } from 'react-icons/fa'
 import { BsSuitHeartFill } from 'react-icons/bs'
 import './Navbar.css'
