@@ -37,6 +37,7 @@ Use React, Router, Asynchronous JavaScript, and End to End testing with Cypress 
 
 ## Preview
 
+![Favoriting](https://media.giphy.com/media/gxXe0ge71aMpLJrtkJ/giphy.gif)
 
 ### Figma Wireframing
 ![sip-and-read](https://user-images.githubusercontent.com/104169837/212783923-5884d153-52f6-477b-91be-2fcb613316a5.png)
