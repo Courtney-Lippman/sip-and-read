@@ -1,70 +1,54 @@
-# Getting Started with Create React App
+## About The Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Sip and Read is a dynamic application that displays an assortment of book and cocktail pairings for the user to view. Upon selecting a pairing, the user may explore the book and drink details such as its author, amazon link, drink ingredients, etc. This application was a showcase of all the knowledge I have gained with React, Router, and Cypress testing. On top of creating a complex and interactive application, I incorporated async JS concepts like fetching to an API and displaying proper error handling from the user and server side for a smoother user experience.
 
-## Available Scripts
+Sip and Read is a solo project that was completed on the 17th week at Turing School of Software Developer and Design. I was given 5 days to complete this project and it took me approximately 30 hours total to finish.
 
-In the project directory, you can run:
+## Contributors
 
-### `npm start`
+Courtney Lippman [GitHub](https://github.com/Courtney-Lippman) | [LinkedIn](https://www.linkedin.com/in/courtneylippman)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Built With
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+[![React][React.js]][React-url]
+![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
+![Cypress](https://img.shields.io/badge/-cypress-%23E5E5E5?style=for-the-badge&logo=cypress&logoColor=058a5e)
+![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
+![Webpack](https://img.shields.io/badge/webpack-%238DD6F9.svg?style=for-the-badge&logo=webpack&logoColor=black)
 
-### `npm test`
+### Other Technologies
+GitHub Project Board | Figma
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Installation
 
-### `npm run build`
+1. Clone the repo
+   ```sh
+   git clone https://github.com/Courtney-Lippman/sip-and-read
+   ```
+2. Install NPM packages
+   ```sh
+   npm install
+   npm start
+   ```
+   
+## Learning Goals
+Use React, Router, Asynchronous JavaScript, and End to End testing with Cypress to create an application that demonstrates the mastery of the technologies learned in the last 5 weeks.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Preview
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Figma Wireframing
+![sip-and-read](https://user-images.githubusercontent.com/104169837/212783923-5884d153-52f6-477b-91be-2fcb613316a5.png)
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Reflections
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Sip and Read allowed me to challenge myself and apply the technology I have become familiar with over the last five weeks. Being able to research different APIs and develop my MVP based on a specific audience, I gained valuable knowledge about the product management process. I also was able to grow as a developer by applying React, Router, Asynch JS, and Cypress testing to the MVP that I created and creating the product in 5 days. Unexpected challenges arose  with asynch JS when I incorporated two APIs into my project; the confidence I built while I learned and solved those challenges was immense. 
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
+[React-url]: https://reactjs.org/
